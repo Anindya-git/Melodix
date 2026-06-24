@@ -10,17 +10,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
+
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.24.0'
           channel: 'stable'
           cache: true
-      - run: flutter pub get
-      - run: flutter build apk --release --split-per-abi
+
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Show flutter doctor
+        run: flutter doctor -v
+
+      - name: Build APK
+        run: flutter build apk --release --split-per-abi --no-shrink
+
       - uses: actions/upload-artifact@v4
         with:
           name: melodix-arm64-apk
