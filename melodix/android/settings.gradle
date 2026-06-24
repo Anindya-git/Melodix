@@ -5,9 +5,9 @@ pluginManagement {
         if (localPropertiesFile.exists()) {
             localPropertiesFile.withInputStream { properties.load(it) }
         }
-        def flutterSdkPath = properties.getProperty("flutter.sdk") ?: System.getenv("FLUTTER_ROOT")
-        assert flutterSdkPath != null, "flutter.sdk not set in local.properties and FLUTTER_ROOT environment variable not found"
-        return flutterSdkPath
+        def resolvedFlutterSdkPath = properties.getProperty("flutter.sdk") ?: System.getenv("FLUTTER_ROOT")
+        assert resolvedFlutterSdkPath != null, "flutter.sdk not set in local.properties and FLUTTER_ROOT environment variable not found"
+        return resolvedFlutterSdkPath
     }()
 
     includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
