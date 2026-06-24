@@ -1,0 +1,76 @@
+name: melodix
+description: A premium music streaming app with YouTube Music integration
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Audio
+  just_audio: ^0.9.36
+  just_audio_background: ^0.0.1-beta.10
+  audio_service: ^0.18.12
+  audio_session: ^0.1.18
+
+  # YouTube / Piped API
+  youtube_explode_dart: ^2.0.0
+  http: ^1.1.0
+
+  # State Management
+  provider: ^6.1.1
+  riverpod: ^2.4.9
+  flutter_riverpod: ^2.4.9
+
+  # Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.2
+  path_provider: ^2.1.2
+
+  # UI
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  glassmorphism: ^3.0.0
+  animations: ^2.0.8
+  lottie: ^3.0.0
+  palette_generator: ^0.3.3+3
+  flutter_staggered_animations: ^1.1.1
+  blur: ^3.1.0
+  salomon_bottom_bar: ^3.3.2
+  sleek_circular_slider: ^2.0.1
+  marquee: ^2.2.3
+
+  # Media & Permissions
+  permission_handler: ^11.2.0
+  on_audio_query: ^2.9.0
+  file_picker: ^6.1.1
+
+  # Lyrics
+  lrc: ^1.1.0
+
+  # Utilities
+  url_launcher: ^6.2.4
+  share_plus: ^7.2.1
+  uuid: ^4.3.3
+  connectivity_plus: ^5.0.2
+  rxdart: ^0.27.7
+  equatable: ^2.0.5
+  dio: ^5.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.8
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
