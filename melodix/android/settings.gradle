@@ -1,5 +1,5 @@
 pluginManagement {
-    def flutterSdkPath = {
+    def sdkPath = {
         def properties = new Properties()
         def localPropertiesFile = file("local.properties")
         if (localPropertiesFile.exists()) {
@@ -10,7 +10,7 @@ pluginManagement {
         return resolvedFlutterSdkPath
     }()
 
-    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
+    includeBuild("$sdkPath/packages/flutter_tools/gradle")
 
     repositories {
         google()
