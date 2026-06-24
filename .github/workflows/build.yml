@@ -8,6 +8,10 @@ on:
 jobs:
   build-apk:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./melodix
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,12 +28,10 @@ jobs:
 
       - name: Accept Android licenses
         run: yes | flutter doctor --android-licenses || true
+        working-directory: .
 
       - name: Get dependencies
         run: flutter pub get
-
-      - name: Show flutter doctor
-        run: flutter doctor -v
 
       - name: Build APK
         run: flutter build apk --release --split-per-abi --no-shrink
@@ -37,5 +39,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: melodix-arm64-apk
-          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+          path: melodix/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
           retention-days: 30
